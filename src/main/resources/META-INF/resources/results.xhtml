@@ -1,0 +1,36 @@
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:form>
+    <f:metadata>
+        <f:viewAction action="#{resultsController.init}"/>
+    </f:metadata>
+    <h:outputLabel value="#{environment.getProperty('label.results')}"/>
+    <br/>
+    <h:dataTable value="#{resultsController.selectedFundList}" var="fund">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="id" style="float: left"/>
+            </f:facet>
+            <h:outputText value="#{resultsController.indexOf(fund)}" style="float: left"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="type" style="float: left"/>
+            </f:facet>
+            <h:outputText value="#{fund.fundType.type}" style="float: left"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="name" style="float: left"/>
+            </f:facet>
+            <h:outputText value="#{fund.name}" style="float: left"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="amount" style="float: left"/>
+            </f:facet>
+            <h:outputText value="#{resultsController.fundAmountMap.get(fund)}" style="float: right"/>
+        </h:column>
+    </h:dataTable>
+    <h:messages/>
+</h:form>
+</html>

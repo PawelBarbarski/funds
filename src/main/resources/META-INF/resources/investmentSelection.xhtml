@@ -1,0 +1,16 @@
+<html xmlns:h="http://xmlns.jcp.org/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:form>
+    <h:panelGrid columns="2">
+        <h:outputLabel value="#{environment.getProperty('label.amount')}"/>
+        <h:inputText value="#{investmentSelectionController.amount}"/>
+        <h:outputLabel value="#{environment.getProperty('label.style')}"/>
+        <h:selectOneMenu value="#{investmentSelectionController.selectedInvestmentStyleId}">
+            <f:selectItems value="#{investmentSelectionController.investmentStyleList}" var="investmentStyle"
+                           itemValue="#{investmentStyle.id}" itemLabel="#{investmentStyle.name}"/>
+        </h:selectOneMenu>
+    </h:panelGrid>
+    <h:commandButton value="#{environment.getProperty('label.submit')}"
+                     action="#{investmentSelectionController.submit}">
+    </h:commandButton>
+</h:form>
+</html>
